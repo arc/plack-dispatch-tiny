@@ -6,8 +6,8 @@ use warnings;
 
 use Test::More;
 
-use Plack::Dispatch::Tiny;
+use Plack::Dispatch::Tiny qw<dispatcher>;
 
-pass('Load-only test so far');
+ok(defined &dispatcher, 'subroutine exists');
 
 done_testing();
