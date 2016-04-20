@@ -7,8 +7,10 @@ WriteMakefile(
     ABSTRACT_FROM => $module_file,
     VERSION_FROM  => $module_file,
     PREREQ_PM     => {
+        'HTTP::Request'  => 0,
         'HTTP::Status'   => 0,
         'Plack::Request' => 0,
+        'Plack::Test'    => 0,
         'Test::More'     => '0.88',
         'Try::Tiny'      => 0,
     },
