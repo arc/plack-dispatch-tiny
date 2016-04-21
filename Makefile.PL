@@ -11,6 +11,7 @@ WriteMakefile(
         'HTTP::Status'   => 0,
         'Plack::Request' => 0,
         'Plack::Test'    => 0,
+        'Test::Fatal'    => 0,
         'Test::More'     => '0.88',
         'Try::Tiny'      => 0,
     },
