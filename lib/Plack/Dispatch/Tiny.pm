@@ -93,3 +93,26 @@ __END__
 =head1 NAME
 
 Plack::Dispatch::Tiny - REST-friendly minimal web dispatcher
+
+=head1 SYNOPSIS
+
+    # catalog.psgi
+
+    sub index_page {
+        my ($rq) = @_; # Plack::Request object
+    }
+
+    sub single_item {
+        my ($rq, $item_id) = @_;
+    }
+
+    my $app = dispatcher(
+        '/'        => { GET  => \&index_page },
+        '/items'   => { GET  => \&item_list,
+                        POST => \&create_item },
+        '/items/*' => { GET  => \&single_item,
+                        PUT  => \&replace_item },
+        404 => sub { errorpage(404) },
+        405 => sub { errorpage(405) },
+        500 => sub { errorpage(500) },
+    );
